@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none !important;
+  outline: none;
+  /* list-style: none; */
+}
+body {
+  background-color: aliceblue;
+}
+nav {
+  /* border: 1px solid red; */
+  width: 15%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  padding-top: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  transition: width 0.5s ease-in-out;
+}
+.navbar{
+    padding: 0px !important;
+}
+.navbar li a {
+  /* border: 1px solid red; */
+  position: relative;
+  display: table;
+  width: 300px;
+  padding: 10px;
+}
+.navbar li a:hover ,.active {
+  background-color: #eee;
+
+}
+.fas {
+  position: relative;
+  width: 14%;
+  top: 3px;
+  /* border: 1px solid red; */
+  font-size: 20px;
+  /* text-align: center; */
+
+  margin-right: 5px;
+}
+nav:hover {
+  width: 15%;
+}
+.nav-item{
+    /* border: 1px solid red; */
+    position: absolute;
+    top: 15px;
+    font-size: 20px;
+    margin-left: 12px;
+    color: rgb(85, 83, 83);
+}
+#logOut{
+    position: absolute;
+    bottom: -100%;
+}
+
+
+
+
+/* Stockin CSS */
+.container{
+  margin-left: 16% !important;
+  /* border: 1px solid red; */
+}
+#add_prod , #add_sale{
+  position: relative;
+  right: 15px ;
+  bottom: 60px;
+  float: right;
+  width: 12%;
+  height: 7vh;
+  border-radius: 8px;
+background-color: #3a81fff7;
+font-size: 18px;
+}
+#add_prod,#add_sale a{
+  /* border: 1px solid red; */
+  /* display: flex; */
+  color: white;
+  text-align: center !important;
+
+}
+table{
+  /* border: 1px solid red; */
+  width: 100%;
+}
+.action_btn
+{
+  background: none;
+  border: none;
+}
+.fa-trash-can{
+  color: red;
+}
+td,th {
+  border: 1px solid rgb(189, 189, 189) !important;
+  padding: 10px ;
+}

@@ -1,0 +1,18 @@
+#update_pro {
+    position: absolute;
+    right: 9rem;
+    bottom: 3rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    float: right;
+    background-color: #1c57e5;
+    color: white;
+    width: 10%;
+    overflow: hidden;
+    height: 6vh;
+    transition: width 0.5s ease-in-out;
+}
+
+#update_pro:hover {
+    width: 16%;
+}

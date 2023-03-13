@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock In - IMS</title>
+    <link rel="stylesheet" href="./components.css">
+    <link rel="stylesheet" href="./Sidebar.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp">
+
+
+    <script src="https://kit.fontawesome.com/19fcc4b5b5.js" crossorigin="anonymous"></script>
+
+    <style>
+        *{
+            border: none;
+        }
+        .container{
+            width:80%;
+        }
+        button {
+            border: none;
+            background: none;
+        }
+
+        #add_prod a {
+            color: white !important;
+        }
+
+        img {
+            width: 35%;
+vertical-align: middle;
+        }
+
+        .p_name {
+            width: 15%;
+        }
+        tr{
+            border-bottom: 1px solid black !important;
+        }
+        .show_prod_div{
+            width: 70vw;
+            position: relative;
+            left: -9rem;
+            top: 1rem;
+        }
+        table{
+            padding: 18px 18px;
+    border-radius: 20px;
+    border:none;
+    background-color:#fff;
+        }
+        .header h2{
+            font-size:2rem;
+        }
+        .header p{
+            font-size:1rem;
+            margin-bottom:20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container " >
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="logo.png" alt="">
+
+                    <h1 class="text_logo">Inventory</h1>
+                </div>
+                <div class="close" id="close_btn">
+
+                    <span class="material-icons-sharp">
+                        close
+                    </span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <a href="./dashboard.html" >
+                    <span class="material-icons-sharp">
+                        grid_view
+                    </span>
+                    <h2>Dashboard</h2>
+                </a>
+                <a href="./stockIn.html" class="active">
+                    <span class="material-icons-sharp">
+                        inventory
+                    </span>
+                    <h2>Products</h2>
+
+                </a>
+                <a href="./add_product.html">
+                    <span class="material-icons-sharp">
+                        add_shopping_cart
+                    </span>
+                    <h2>Add Products</h2>
+
+                </a>
+                <a href="./stockout.html">
+                    <span class="material-icons-sharp">
+                        point_of_sale
+                    </span>
+                    <h2>Sales</h2>
+                </a>
+                <a href="./Settings (1).html">
+                    <span class="material-icons-sharp">
+                        settings
+                    </span>
+                    <h2>Settings</h2>
+                </a>
+                <a href="../index.html">
+                    <span class="material-icons-sharp">
+                        logout
+                    </span>
+                    <h2>LogOut</h2>
+                </a>
+             
+            </div>
+        </aside>
+        <div class="show_prod_div" >
+
+        <div class="header" >
+
+            <h2 class="">Product List</h2>
+            <p class="">Manage Your Product from Here...!</p>
+
+
+        </div>
+            <table id="show_prod" >
+                <tr>
+                    <th>S. No</th>
+                    <th>Product Name</th>
+                    <th>Product Quantity</th>
+                    <th>Product Price</th>
+                    <th>Supplier Name</th>
+                    <th>Date of Stock In</th>
+                    <th>Action</th>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyC9FeNbcnlhPBbS08-KlnxKxkFZ2aRIGQ8",
+            authDomain: "inventory-management-sys-be180.firebaseapp.com",
+            databaseURL: "https://inventory-management-sys-be180-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "inventory-management-sys-be180",
+            storageBucket: "inventory-management-sys-be180.appspot.com",
+            messagingSenderId: "1028354977886",
+            appId: "1:1028354977886:web:c367c0ac2725a4d2c444cf"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <script src="StockIn.js"></script>
+</body>
+
+</html>

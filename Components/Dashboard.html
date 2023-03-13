@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dash Board</title>
+
+    <link rel="stylesheet" href="./Dashboard.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp">
+
+<style>
+    aside .sidebar {
+        top: 1rem !important;
+    }
+</style>
+
+
+</head>
+
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="logo.png" alt="">
+
+                    <h1 class="text_logo">Inventory</h1>
+                </div>
+                <div class="close" id="close_btn">
+
+                    <span class="material-icons-sharp">
+                        close
+                    </span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <a href="./dashboard.html"  class="active">
+                    <span class="material-icons-sharp">
+                        grid_view
+                    </span>
+                    <h2>Dashboard</h2>
+                </a>
+                <a href="./stockIn.html">
+                    <span class="material-icons-sharp">
+                        inventory
+                    </span>
+                    <h2>Products</h2>
+                   
+                </a>
+                <a href="./add_product.html">
+                    <span class="material-icons-sharp">
+                        add_shopping_cart
+                    </span>
+                    <h2>Add Products</h2>
+                   
+                </a>
+                <a href="./stockout.html">
+                    <span class="material-icons-sharp">
+                        point_of_sale
+                    </span>
+                    <h2>Sales</h2>
+                </a>
+                <a href="./Settings (1).html">
+                    <span class="material-icons-sharp">
+                        settings
+                    </span>
+                    <h2>Settings</h2>
+                </a>
+                <a href="../index.html">
+                    <span class="material-icons-sharp">
+                        logout
+                    </span>
+                    <h2>LogOut</h2>
+                </a>
+              
+
+            </div>
+        </aside>
+
+        <!-- End of ASIDE -->
+        <main>
+            <h1>Dashboard</h1>
+          
+            <div class="insights">
+                <div class="sales">
+                    <span class="material-icons-sharp">
+                        bubble_chart
+                    </span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Total Sales</h3>
+                            <h1 id='total_sales'></h1>
+                        </div>
+                        <!-- <div class="progress">
+                            <svg>
+                                <circle cx="38" r="35" cy="38">
+                                </circle>
+                            </svg>
+                            <div class="number">
+                                <p>90%</p>
+                            </div>
+                        </div> -->
+                    </div>
+                    <small>last 24 hours</small>
+                </div>
+                <!--        END OF SALES -->
+
+                <div class="expense">
+                    <span class="material-icons-sharp">
+                        bar_chart
+                    </span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Total Expense</h3>
+                            <h1 id="total_expense"></h1>
+                        </div>
+                        <!-- <div class="progress">
+                            <svg>
+                                <circle cx="38" cy="38" r="36" class="circle">
+                                </circle>
+                            </svg>
+                            <div class="number">
+                                <p>70%</p>
+                            </div>
+                        </div> -->
+                    </div>
+                    <small>last 24 hours</small>
+                </div>
+                <!--        END OF expense -->
+
+                <div class="income">
+                    <span class="material-icons-sharp">
+                        show_chart
+                    </span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Total Income</h3>
+                            <h1 id="total_income"></h1>
+                        </div>
+                        <!-- <div class="progress">
+                            <svg>
+                                <circle cx="38" r="35" cy="38">
+                                </circle>
+                            </svg>
+                            <div class="number">
+                                <p>75%</p>
+                            </div>
+                        </div> -->
+                    </div>
+                    <small>last 24 hours</small>
+                </div>
+                <!--        END OF income -->
+            </div>
+
+            <!-- RECENT ORDER -->
+            <div class="recent_order">
+                <h2 style="margin: 45px 10px;    margin-bottom: 10px;">Recent Order</h2>
+                <table class="recent_order_table" id='recent_order_table'>
+                    <thead>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Product Number</th>
+                            <th>Product Payment</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                </table>
+                <a href="#">Show All</a>
+            </div>
+
+        </main>
+<!-- END OF MAIN -->
+
+<div class="right">
+    <div class="top">
+        <button class="menu_btn" id="menu_btn">
+            <span class="material-icons-sharp">
+                menu
+            </span>
+        </button>
+        <div class="theme_toggler">
+            <span class="material-icons-sharp active">
+                light_mode
+            </span>
+            <span class="material-icons-sharp">
+                dark_mode
+            </span>
+        </div>
+        <div class="date">
+<span id='today_date'>
+33293-2
+</span>
+        </div>
+    </div>
+</div>
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyC9FeNbcnlhPBbS08-KlnxKxkFZ2aRIGQ8",
+            authDomain: "inventory-management-sys-be180.firebaseapp.com",
+            databaseURL: "https://inventory-management-sys-be180-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "inventory-management-sys-be180",
+            storageBucket: "inventory-management-sys-be180.appspot.com",
+            messagingSenderId: "1028354977886",
+            appId: "1:1028354977886:web:c367c0ac2725a4d2c444cf"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <script src="./Dashboard.js"></script>
+
+</body>
+
+</html>
